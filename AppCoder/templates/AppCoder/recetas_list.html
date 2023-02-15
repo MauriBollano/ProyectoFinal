@@ -9,7 +9,7 @@
         <div class="row g-0">
             <div class="col-md-4" style="margin:auto;display:block; padding: 24px;">
                     {% if receta.imagen %}
-                        <img src="{{ receta.imagen.url}}" alt="{{ receta.nombre }}" class="card-img-top" style="border: 1px solid gray;border-radius: 8px; width: 180px; height: 180px;">
+                        <img src="{{ receta.imagen.url}}" alt="{{ receta.nombre }}" class="card-img-top" style=" gray;border-radius: 8px; width: 180px; height: 180px;">
                     {% else %}
                         <img src="{% static 'AppCoder/img/RecetasDefaultIMG.jpg' %}" alt="{{ receta.nombre }}" class="card-img-top" style=" border: 12px;border-radius: 8px;">
                     {% endif %}
