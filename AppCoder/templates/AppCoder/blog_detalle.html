@@ -1,0 +1,20 @@
+{% extends 'AppCoder/padre.html' %}
+{% load static %}
+{% block contenidoQueCambia %}
+    <p>Titulo : <i> {{ blog.titulo }}</i></p>
+    <p>Subtitulo : <i> {{ blog.subtitulo }}</i></p>
+    <p>Cuerpo: <i>{{blog.cuerpo|safe}}</i></p>
+    <p>Autor: <i>{{blog.autor}}</i></p>
+    {% if blog.imagen %}
+    <p>Imagen:</p>
+        <img src="{{ blog.imagen.url }}" alt="{{ blog.titulo }}">
+    {% endif %}
+    
+    
+
+    <p>
+        <a href="{% url 'Blog' %}">Volver a la lista de blogs</a>
+    </p>
+
+
+{% endblock %}>
