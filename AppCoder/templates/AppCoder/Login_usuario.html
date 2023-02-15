@@ -1,0 +1,18 @@
+{% extends 'AppCoder/padre.html' %}
+{% load static %}
+{% block contenidoQueCambia %}
+<div style="display: flex;justify-content: center;">
+    <div style="text-align: center;padding: 8px;">
+        <form action="{% url 'login' %}" method="POST"> {% csrf_token %} 
+            <table>
+                {{ form.as_table }}
+            </table>
+            <div style="padding: 12px;align-items: center;">
+                <input class="btn btn-secondary" style="border-radius: 8px; width: 160px;" type="submit" value="Ingresar">
+                <a  class="btn btn-secondary" style="border-radius: 8px; width: 160px;" href="{% url 'Inicio' %}"> Volver </a>
+            </div>
+
+        </form>
+    </div>
+</div>
+{% endblock %}

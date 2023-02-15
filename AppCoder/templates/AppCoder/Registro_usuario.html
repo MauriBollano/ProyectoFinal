@@ -1,0 +1,28 @@
+{% extends "AppCoder/padre.html" %}
+
+{% load static %}
+
+{% block title %}
+    Registro
+{% endblock %}
+
+{% block titulo %}
+    Nuevo Usuario
+{% endblock %}
+
+{% block subtitulo %}
+    {{ mensaje }}
+{% endblock %}
+
+{% block contenidoQueCambia %}
+    <form action="{% url 'registro' %}" method="POST" style="padding-left: 38%; padding-bottom: 1rem; "> {% csrf_token %} 
+        <table>
+            {{ form.as_table }}
+        </table>
+        <div style="padding-top: 24px; padding-left: 12%;">
+            <input  class="btn btn-secondary" style="border-radius: 8px; width: 160px;" type="submit" value="Crear Usuario">
+            <a  class="btn btn-secondary" style="border-radius: 8px; width: 160px;" href="{% url 'Inicio' %}"> Volver </a>
+        </div>
+    </form>
+    
+{% endblock %}

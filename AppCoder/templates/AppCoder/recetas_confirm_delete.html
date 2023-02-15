@@ -1,0 +1,12 @@
+{% extends 'AppCoder/padre.html' %}
+{% load static %}
+{% block contenidoQueCambia %}
+
+    
+    <form method="post">{% csrf_token %}
+        ¿Estas seguro que deseas borrar esta receta de nombre "{{object.nombre}}""?
+        <input type="Submit" value="Si">
+    </form>
+    <a href="{% url 'Recetas' %}">Volver</a>
+
+{% endblock %}

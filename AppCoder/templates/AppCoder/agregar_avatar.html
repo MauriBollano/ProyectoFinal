@@ -1,0 +1,29 @@
+{% extends "AppCoder/padre.html" %}
+
+{% load static %}
+
+{% block titulo %}
+    AGREGAR AVATAR
+{% endblock %}
+
+{% block subtitulo %}
+    {{ mensaje }}
+{% endblock %}
+
+
+{% block contenidoQueCambia %}
+    <div style="text-align: center; padding-bottom: 24px;">
+        <img src="{{ avatar }}" class="rounded-circle mx-auto d-block" alt="..." width="200" height="200">
+    </div>
+    <div>
+        <form style="padding-left: 33%;" action="{% url 'agregar_avatar' %}" method="POST" enctype="multipart/form-data"> {% csrf_token %} 
+            <table>
+                {{ form.as_table }}
+            </table>
+            <div style="padding-left: 15%; padding-top: 24px;">
+                <input class="btn btn-secondary" style="border-radius: 8px;" type="submit" value="Agregar">
+                <a class="btn btn-secondary" style="border-radius: 8px;" href="{% url 'perfil' %}"> Volver </a>
+            </div>
+        </form>
+    </div>
+{% endblock %}

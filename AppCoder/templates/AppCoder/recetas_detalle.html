@@ -1,0 +1,18 @@
+{% extends 'AppCoder/padre.html' %}
+{% load static %}
+{% block contenidoQueCambia %}
+
+    
+    <p>Nombre de la receta : <i> {{ recetas.nombre }}</i></p>
+    <p>Tipo de la receta : <i> {{ recetas.get_tipo_display }}</i></p>
+    <p>Dificulta de la receta: <i>{{recetas.get_dificultad_display}}</i></p>
+    <p>Tiempo necesario: <i>{{recetas.tiempo}}</i> minutos</p>
+    <p>Ingredientes necesarios: <i>{{recetas.ingredientes|safe}}</i></p>
+    <p>Insutrcciones : <i>{{recetas.instrucciones|safe}}</i></p>
+    <p>Imagen:</p>
+    <img src="{{ recetas.imagen.url }}" alt="{{ recetas.nombre }}">
+    <br>
+    <a href="{% url 'Recetas' %}">Volver a las recetas</a>
+
+
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends "AppCoder/padre.html" %}
+
+{% load static %}
+
+{% block titulo %}
+    Editar Usuario <br> {{ user.username }}
+{% endblock %}
+
+{% block subtitulo %}
+    {{ mensaje }}
+{% endblock %}
+
+
+{% block contenidoQueCambia %}
+    <div class="container text-center">
+        <div class="row">
+            <div class="col-sm-8 col-md-10">
+                <form action="{% url 'editar_usuario' %}" method="POST" style="padding-left: 40%;"> {% csrf_token %}
+                    <div style="display: flex; flex-direction: column; align-items: center; text-align: left;">
+                        <table>
+                            {{ form.as_table }}
+                        </table>
+                    </div> 
+                    <div style="padding: 24px;">
+                        <input class="btn btn-secondary" style="border-radius: 8px; width: 220px;" type="submit" value="Guardar Cambios">
+                        <a class="btn btn-secondary" style="border-radius: 8px; width: 220px;" href="{% url 'perfil' %}"> Cancelar </a>
+                    </div>
+                    
+                </form>
+            </div>
+            <div class="col-sm-4 col-md-2" style="text-align: center;">
+                <img src="{{ avatar }}" class="rounded-circle mx-auto d-block" alt="Avatar" width="200" height="200">
+                <a href="{% url 'agregar_avatar' %}">Cambiar avatar</a>
+            </div>
+        </div>
+    </div>
+    
+{% endblock %}
