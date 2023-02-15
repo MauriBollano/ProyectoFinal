@@ -4,35 +4,30 @@
 
 
 {% for receta in object_list %}
-<div style="margin: auto;">
-    <div class="card border-secondary mb-3 " style="margin: auto; max-width: 700px; background-color: rgb(217, 234, 210);">
-        <div class="row g-0">
-            <div class="col-md-4" style="margin:auto;display:block; padding: 24px;">
-                    {% if receta.imagen %}
-                        <img src="{{ receta.imagen.url}}" alt="{{ receta.nombre }}" class="card-img-top" style=" gray;border-radius: 8px; width: 180px; height: 180px;">
-                    {% else %}
-                        <img src="{% static 'AppCoder/img/RecetasDefaultIMG.jpg' %}" alt="{{ receta.nombre }}" class="card-img-top" style=" border: 12px;border-radius: 8px;">
-                    {% endif %}
+<div style="padding-left:25%;padding-bottom: 24px;">
+    <div class="card" style=" padding: 24px; width: 1000px;border-radius: 4px;">
+        <div class="row">
+            <div class="col-md-4">
+                {% if receta.imagen %}
+                    <img src="{{ receta.imagen.url}}" alt="{{ receta.nombre }}" class="card-img-top" style="border-radius: 8px; width: 180px; height: 180px;">
+                {% else %}
+                    <img src="{% static 'AppCoder/img/RecetasDefaultIMG.jpg' %}" alt="{{ receta.nombre }}" class="card-img-top" style=" border: 12px;border-radius: 8px;">
+                {% endif %}
             </div>
             <div class="col-md-8">
-                <div class="card-body">
-                    <h5 class="card-title"><i>{{ receta.nombre }}</i></h5>
-                    <p class="card-text">Clasificación alimenticia :<i>{{ receta.get_tipo_display}}</i></p>
-                    <p class="card-body">
-                        <a href="{% url 'RecetasDetalles' receta.id %}" class="btn btn-secondary" style="text-decoration: none;border-radius: 8px;"> Ver </a>
-                        <a href="{% url 'RecetasUpdate' receta.id %}" class="btn btn-secondary" style="text-decoration: none;border-radius: 8px;"> Editar </a>
-                        <a href="{% url 'RecetasDelete' receta.id %}" class="btn btn-secondary" style="text-decoration: none;border-radius: 8px;"> Borrar </a>
-                    </p>
+                <div class="card-body" style="width: 100%;">
+                    <h5 class="card-title">{{receta.nombre}}</h5>
+                    <p class="card-text">{{receta.get_tipo_display}}</p>
+                    <p class="card-text"><small class="text-muted">{{blog.resumen|safe}}</small></p>
+                    <a href="{% url 'RecetasDetalles' receta.id %}" class="btn btn-secondary" style="text-decoration: none;border-radius: 8px;"> Ver </a>
+                    <a href="{% url 'RecetasUpdate' receta.id %}" class="btn btn-secondary" style="text-decoration: none;border-radius: 8px;"> Editar </a>
+                    <a href="{% url 'RecetasDelete' receta.id %}" class="btn btn-secondary" style="text-decoration: none;border-radius: 8px;"> Borrar </a>
                 </div>
             </div>
-        
         </div>
-        
     </div>
 </div>
 {% endfor %}
 
-
-    <a href="{% url 'RecetasCreacion' %}"> Nueva receta</a>
-    <br>
 {% endblock %}
+

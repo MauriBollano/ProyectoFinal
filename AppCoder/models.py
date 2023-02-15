@@ -9,7 +9,7 @@ class Recetas(models.Model):
     TIPO_OPCIONES = [
         (1, "Vegetariano"),
         (2, "Vegano"),
-        (3, "Con carne"),
+        (3, "Contiene carne"),
         (4, "Free Gluten")
     ]
 
@@ -51,11 +51,16 @@ class Recetas(models.Model):
 class Blog(models.Model):
     titulo = models.CharField(max_length = 50)
     subtitulo = models.CharField(max_length = 50)
+    resumen= RichTextField(null=True)
     cuerpo = RichTextField()
     autor = models.CharField(max_length = 50)
     fecha = models.DateField(auto_now_add=True)
     imagen = models.ImageField(null=True,blank=True,  upload_to= "imagenes/")
     
+    def save(self, *args, **kwargs):
+        if not self.imagen:
+            self.imagen = 'imagenes/BlogDefaultIMG.jpg'
+        super().save(*args, **kwargs)
     
     def __str__(self):
         return "Titulo : " + self.titulo + " -  Subtitulo: " + self.subtitulo + " -  Autor: " + self.autor

@@ -2,17 +2,37 @@
 {% load static %}
 {% block contenidoQueCambia %}
 
-    
-    <p>Nombre de la receta : <i> {{ recetas.nombre }}</i></p>
-    <p>Tipo de la receta : <i> {{ recetas.get_tipo_display }}</i></p>
-    <p>Dificulta de la receta: <i>{{recetas.get_dificultad_display}}</i></p>
-    <p>Tiempo necesario: <i>{{recetas.tiempo}}</i> minutos</p>
-    <p>Ingredientes necesarios: <i>{{recetas.ingredientes|safe}}</i></p>
-    <p>Insutrcciones : <i>{{recetas.instrucciones|safe}}</i></p>
-    <p>Imagen:</p>
-    <img src="{{ recetas.imagen.url }}" alt="{{ recetas.nombre }}">
-    <br>
-    <a href="{% url 'Recetas' %}">Volver a las recetas</a>
-
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <img src="{{ recetas.imagen.url }}" alt="{{ recetas.nombre }}" style="height: 400px;width: 400px;">
+        </div>
+        <div class="col-md-8">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <p><strong style="font-style: oblique;">Nombre de la receta :</strong>  <i> {{ recetas.nombre }}</i></p>
+                        <p> <strong style="font-style: oblique;">Tipo de la receta :</strong>  <i> {{ recetas.get_tipo_display }}</i></p>
+                    </div>
+                    <div class="col-md-6">
+                        <p><strong style="font-style: oblique;">Dificulta de la receta:</strong>  <i>{{recetas.get_dificultad_display}}</i></p>
+                        <p><strong style="font-style: oblique;">Tiempo necesario:</strong>  <i>{{recetas.tiempo}}</i> minutos</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <p> <strong style="font-style: oblique;">Ingredientes necesarios:</strong>  <br><i>{{recetas.ingredientes|safe}}</i></p>
+                    </div>
+                    <div class="col-md-6">
+                        <p><strong style="font-style: oblique;">Insutrcciones :</strong> <br><i>{{recetas.instrucciones|safe}}</i></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" style="text-align: center;">
+        <a href="{% url 'Recetas' %}" style="padding: 48px;"><i class="icono-arrow1-left"></i> &#8592; Volver a las recetas</a>
+    </div>
+</div>
 
 {% endblock %}

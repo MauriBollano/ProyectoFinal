@@ -1,20 +1,19 @@
 {% extends 'AppCoder/padre.html' %}
 {% load static %}
 {% block contenidoQueCambia %}
-    <p>Titulo : <i> {{ blog.titulo }}</i></p>
-    <p>Subtitulo : <i> {{ blog.subtitulo }}</i></p>
-    <p>Cuerpo: <i>{{blog.cuerpo|safe}}</i></p>
-    <p>Autor: <i>{{blog.autor}}</i></p>
-    {% if blog.imagen %}
-    <p>Imagen:</p>
-        <img src="{{ blog.imagen.url }}" alt="{{ blog.titulo }}">
-    {% endif %}
-    
-    
+<div style="margin: auto; padding-left: 22%;">
+    <div class="card" style=" padding: 24px; width: 1000px;">
+        <img src="{{blog.imagen.url}}" class="img-fluid" alt="{{blog.titulo}}}" >
+            <h1 class="card-title">{{blog.titulo}}</h1>
+            <p class="card-title">{{blog.subtitulo}}</p>
+            <p class="card-text">{{blog.cuerpo|safe}}</p>
+        </div>
+    </div>
 
-    <p>
-        <a href="{% url 'Blog' %}">Volver a la lista de blogs</a>
-    </p>
-
+    <div  style="padding:24px;text-align: center;">
+        <a href="{% url 'Blog' %}" style="padding: 48px;"><i class="icono-arrow1-left"></i> &#8592; Volver a los blogs</a>
+    </div>
+</div>
+    
 
 {% endblock %}>

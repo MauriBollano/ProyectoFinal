@@ -14,7 +14,7 @@ class RecetasForm(forms.Form):
     tipo_opciones = [
         (1, "Vegetariano"),
         (2, "Vegano"),
-        (3, "Con carne"),
+        (3, "Contiene carne"),
         (4,"Free Gluten")
     ]
     tipo = forms.ChoiceField(label="Tipo", choices=tipo_opciones)
@@ -35,6 +35,7 @@ class RecetasForm(forms.Form):
 class BlogForm(forms.Form):
     titulo = forms.CharField(label="Titulo")
     subtitulo = forms.CharField(label="Subtitulo")
+    resumen = forms.CharField(label="Resumen", widget=CKEditorWidget)
     cuerpo = forms.CharField(label="Cuerpo", widget=CKEditorWidget)
     autor = forms.CharField(label="Autor")
     fecha = forms.DateField(label="Fecha", initial=datetime.now, widget=forms.SelectDateWidget())

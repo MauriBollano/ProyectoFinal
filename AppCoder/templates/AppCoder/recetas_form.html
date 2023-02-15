@@ -1,12 +1,18 @@
 {% extends 'AppCoder/padre.html' %}
 {% load static %}
 {% block contenidoQueCambia %}
-    
+{{ form.media }}
+<div style="display: flex; flex-direction: column; align-items: center; text-align: left;">
     <form method="POST" enctype="multipart/form-data">{% csrf_token %}
-        
         {{form.as_p}}
-        <input type="submit" value="Enviar">
-        <a href="{% url 'Recetas' %}">Volver</a>
+        <div style="padding: 24px;">
+            <input class="btn btn-secondary" style="border-radius: 8px; width: 220px;" type="submit" value="Enviar">
+            <a class="btn btn-secondary" style="border-radius: 8px; width: 220px;" href="{% url 'Recetas' %}">Cancelar y Volver</a>
+        </div>
+        
     </form>
+</div>
+
+    
 
 {% endblock %}

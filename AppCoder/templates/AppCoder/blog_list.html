@@ -2,23 +2,23 @@
 {% load static %}
 {% block contenidoQueCambia %}
 
-    
-    <h1> Lista de posts</h1>
-    <ul>
-        {% for blog in object_list %}
+{% for blog in object_list %}
+<div style="padding-left:22%;padding-bottom: 24px;border-radius: 4px;">
+    <div class="card" style=" padding: 24px; width: 1000px;">
+        <img src="{{blog.imagen.url}}" class="card-img-top" alt="{{blog.titulo}}}" style="height: 400px;max-width: 100%; max-height: 200px ;">
+        <div class="card-body" style="width: 100%;">
+            <h5 class="card-title">{{blog.titulo}}</h5>
+            <p class="card-text">{{blog.subtitulo}}</p>
+            <p class="card-text"><small class="text-muted">{{blog.resumen|safe}}</small></p>
+            <a href="{% url 'BlogDetalles' blog.id %}" class="btn btn-secondary" style="text-decoration: none;border-radius: 8px;"> Ver </a>
+            <a href="{% url 'BlogUpdate' blog.id %}" class="btn btn-secondary" style="text-decoration: none;border-radius: 8px;"> Editar </a>
+            <a href="{% url 'BlogDelete' blog.id %}" class="btn btn-secondary" style="text-decoration: none;border-radius: 8px;"> Borrar </a>
+        </div>
+    </div>
+</div>
 
-            <li>
-                <p>Nombre : {{blog.titulo}}</p>
-                <p>
-                    <a href="{% url 'BlogDetalles' blog.id %}"> Ver </a>
-                    <a href="{% url 'BlogUpdate' blog.id %}"> Editar </a>
-                    <a href="{% url 'BlogDelete' blog.id %}"> Borrar </a>
-                </p>
-            </li>
-        {% endfor %}
-    </ul>
+{% endfor %}
 
-    <a href="{% url 'BlogCreacion' %}"> Nuevo post</a>
-    <br>
+
 
 {% endblock %}

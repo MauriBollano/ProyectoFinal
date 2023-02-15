@@ -117,14 +117,14 @@ class BlogCreacion(CreateView):
 
     model = Blog
     success_url = reverse_lazy('Blog')
-    fields = ['titulo','subtitulo','cuerpo','autor','imagen']
+    fields = ['titulo','subtitulo','resumen','cuerpo','autor','imagen']
 
 
 class BlogUpdate(UpdateView):
 
     model = Blog
     succes_url = reverse_lazy('Blog')
-    fields = ['titulo','subtitulo','cuerpo','autor','imagen']
+    fields = ['titulo','subtitulo','resumen','cuerpo','autor','imagen']
 
     def get_success_url(self):
         return reverse('Blog')
