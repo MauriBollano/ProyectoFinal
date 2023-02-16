@@ -27,31 +27,24 @@ La página web fue desarrollada utilizando las siguientes tecnologías:
 
 ## Aplicaciones
 
-### Recetas
+### AppCoder
 
-Descripción
+AppCoder es una aplicación web que te permite crear, leer, actualizar y eliminar recetas y blogs. Además, también te permite ver recetas y blogs de otros usuarios.
 
-La aplicación de recetas permite a los usuarios explorar, buscar y crear recetas. Los usuarios pueden ver una lista de las últimas recetas, buscar recetas por título o ingredientes, ver los detalles de cada receta y crear y publicar sus propias recetas.
+Características:
 
+- Registro y autenticación de usuarios
+- Creación de recetas y blogs con título, descripción, ingredientes, pasos de preparación y fotos
+- Búsqueda de recetas y blogs por título y categoría
+- Edición y eliminación de recetas y blogs propios
+- Interfaz de usuario intuitiva y fácil de usar
 
-Características
-La aplicación de recetas cuenta con las siguientes características:
+### AppRegistro
 
-Página de inicio: los usuarios pueden ver una lista de las últimas recetas publicadas.
-Búsqueda de recetas: los usuarios pueden buscar recetas por título o ingredientes.
-Página de detalle de recetas: los usuarios pueden ver los detalles de cada receta, incluyendo una lista de ingredientes, instrucciones de preparación, fotos y comentarios de otros usuarios.
-Creación de recetas: los usuarios pueden crear y publicar sus propias recetas en la plataforma.
-Comentarios: los usuarios pueden dejar comentarios en las recetas.
-Autenticación y autorización: los usuarios pueden crear una cuenta y autenticarse en la plataforma. Los usuarios con permisos especiales (como el administrador) pueden acceder a funcionalidades adicionales.
+AppRegistro es una aplicación web que te permite crear y editar un perfil de usuario con información como tu nombre, correo electrónico, contraseña y foto de perfil.
 
-### Blog
+Características:
 
-Descripción
-
-La aplicación de blog permite a los usuarios leer artículos sobre nutrición, vida saludable y otras temáticas relacionadas con la alimentación, y crear y publicar sus propios artículos.
-
-Características
-La aplicación de blog cuenta con las siguientes características:
-
-Página de inicio: los usuarios pueden ver una lista de los últimos artículos publicados.
-Página de detalle de artículos: los usuarios pueden ver los detalles de cada artículo, incluyendo el título, contenido y
+- Registro y autenticación de usuarios
+- Creación y edición de perfil de usuario con nombre, correo electrónico, contraseña y foto de perfil
+- Interfaz de usuario intuitiva y fácil de usar
