@@ -8,7 +8,6 @@ from django.contrib.auth.decorators import login_required
 from AppRegistro.forms import FormularioRegistro, Formulario_Edicion_Usuario
 
 
-
 # Create your views here.
 def obtener_avatar(request):
     lista = Avatar.objects.filter(usuario=request.user)

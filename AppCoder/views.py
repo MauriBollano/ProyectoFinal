@@ -2,11 +2,12 @@ from django.shortcuts import render, HttpResponse
 from django.http import HttpResponse
 from .models import *
 from AppCoder.forms import *
+from AppRegistro.forms import *
+from AppRegistro.views import *
 from PIL import Image
 from AppRegistro.views import *
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.mixins import LoginRequiredMixin
-
+from django.utils.decorators import method_decorator
 # Create your views here.
 
 def inicio (request):
@@ -17,30 +18,14 @@ def inicio (request):
 
 def aboutMe(request):
 
-    return render(request, 'AppCoder/aboutMe.html')
-
-
-
-def blog(request):
-
-
-    if request.method == "POST":
-
-        miFormulario = BlogForm(request.POST) # Aqui me llega la informacion del html
-        print(miFormulario)
-
-        if miFormulario.is_valid:
-            informacion = miFormulario.cleaned_data
-            blog = Blog(titulo=informacion["titulo"], subtitulo=informacion["subtitulo"], cuerpo=informacion["cuerpo"],autor=informacion["autor"],fecha=informacion["fecha"], imagen="imagen")
-            blog.save()
-            return render(request, "AppCoder/inicio.html")
+    if request.user.is_authenticated:
+        return render(request, 'AppCoder/aboutMe.html', {'avatar': obtener_avatar(request)})
     else:
-            miFormulario = BlogForm()
-
-    return render(request, "AppCoder/blog.html", {"miFormulario": miFormulario})
+        return render(request, 'AppCoder/aboutMe.html')
 
 
-def busquedaRecetas(request):
+
+def busquedaRecetas(request): 
     return render(request, "AppCoder/busquedaRecetas.html")
 
 def buscarRecetas(request):
@@ -72,19 +57,20 @@ class RecetasLista(ListView):
     model = Recetas
     template_name = 'AppCoder/recetas_list.html'
 
+
 class RecetasDetalles(DetailView):
 
     model = Recetas
     template_name = 'AppCoder/recetas_detalle.html'
 
-
+@method_decorator(login_required, name='dispatch')
 class RecetasCreacion(CreateView):
 
     model = Recetas
     success_url = reverse_lazy('Recetas')
     fields = ['nombre', 'tipo','tiempo','dificultad','ingredientes','instrucciones','imagen']
 
-
+@method_decorator(login_required, name='dispatch')
 class RecetasUpdate(UpdateView):
 
     model = Recetas
@@ -94,11 +80,12 @@ class RecetasUpdate(UpdateView):
     def get_success_url(self):
         return reverse('RecetasLista')
 
-
+@method_decorator(login_required, name='dispatch')
 class RecetasDelete(DeleteView):
 
     model = Recetas
     success_url = reverse_lazy('Recetas')
+
 
 """ Clases basada em vosta para los post """
 
@@ -112,14 +99,14 @@ class BlogDetalles(DetailView):
     model = Blog
     template_name = 'AppCoder/blog_detalle.html'
 
-
+@method_decorator(login_required, name='dispatch')
 class BlogCreacion(CreateView):
 
     model = Blog
     success_url = reverse_lazy('Blog')
     fields = ['titulo','subtitulo','resumen','cuerpo','autor','imagen']
 
-
+@method_decorator(login_required, name='dispatch')
 class BlogUpdate(UpdateView):
 
     model = Blog
@@ -129,7 +116,7 @@ class BlogUpdate(UpdateView):
     def get_success_url(self):
         return reverse('Blog')
 
-
+@method_decorator(login_required, name='dispatch')
 class BlogDelete(DeleteView):
 
     model = Blog
