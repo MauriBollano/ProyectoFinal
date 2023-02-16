@@ -9,7 +9,7 @@
         <div class="card-body" style="width: 100%;">
             <h5 class="card-title">{{blog.titulo}}</h5>
             <p class="card-text">{{blog.subtitulo}}</p>
-            <p class="card-text"><small class="text-muted">{{blog.resumen|safe}}</small></p>
+            <p class="card-text"><small class="text-muted" style="font-size: small;">{{blog.resumen|safe}}</small></p>
             <a href="{% url 'BlogDetalles' blog.id %}" class="btn btn-secondary" style="text-decoration: none;border-radius: 8px;"> Ver </a>
             <a href="{% url 'BlogUpdate' blog.id %}" class="btn btn-secondary" style="text-decoration: none;border-radius: 8px;"> Editar </a>
             <a href="{% url 'BlogDelete' blog.id %}" class="btn btn-secondary" style="text-decoration: none;border-radius: 8px;"> Borrar </a>

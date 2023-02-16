@@ -19,7 +19,7 @@ class Recetas(models.Model):
         (3,"Dificil")
     ]
 
-    nombre = models.CharField(max_length=20);
+    nombre = models.CharField(max_length=40);
     tipo = models.IntegerField(null=False,blank=False,choices= TIPO_OPCIONES)
     tiempo =  models.IntegerField()
     dificultad = models.IntegerField(null=False,blank=False, choices= DIFICULTAD_OPCIONES)
@@ -50,7 +50,7 @@ class Recetas(models.Model):
 
 class Blog(models.Model):
     titulo = models.CharField(max_length = 50)
-    subtitulo = models.CharField(max_length = 50)
+    subtitulo = models.CharField(max_length = 100)
     resumen= RichTextField(null=True)
     cuerpo = RichTextField()
     autor = models.CharField(max_length = 50)

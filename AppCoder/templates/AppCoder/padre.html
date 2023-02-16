@@ -22,7 +22,26 @@
 
 </head>
 
-<body style="background-color: #d5dfdd;">
+<style>
+html {
+    min-height: 100%;
+    position: relative;
+}
+body {
+    margin: 0;
+    margin-bottom: 80px;
+}
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 40px;
+    color: white;
+}
+</style>
+
+<body style="background-color: #d5dfdd;
+">
     <!-- navbar navbar-dark navbar-brand  style="background-color: #7c99d8;"-->
 <!-- Barra de navegacion superior -->
 
@@ -75,7 +94,7 @@
 {% endblock %}
 
 
-<footer class="py-5" style="background-color:#659c99; position: absolute; margin-bottom: 0; width: 100%; height: 30px;">
+<footer style= "background-color:#659c99;padding-top: 24px;">
     <div class="container px-5"><p class="m-0 text-center text-white small">Copyright &copy; Your Website 2022</p></div>
 </footer>
 
