@@ -1,4 +1,4 @@
-<center> # Página web </center>
+ # Página web
 
 ## Descripción
 
