@@ -1,4 +1,4 @@
-# Página web
+ # Página web
 
 ## Descripción
 
@@ -52,6 +52,6 @@ Características:
 
 # Video:
 
-En el siguiente url se muestra el funcionamiento de la paguina y diferentes casos de prueba.
+En el siguiente URL se muestra el funcionamiento de la páginay diferentes casos de prueba.
 
 ###  URL :
