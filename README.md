@@ -48,3 +48,10 @@ Características:
 - Registro y autenticación de usuarios
 - Creación y edición de perfil de usuario con nombre, correo electrónico, contraseña y foto de perfil
 - Interfaz de usuario intuitiva y fácil de usar
+
+
+# Video:
+
+En el siguiente url se muestra el funcionamiento de la paguina y diferentes casos de prueba.
+
+###  URL :
