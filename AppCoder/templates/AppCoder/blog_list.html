@@ -13,6 +13,7 @@
             <a href="{% url 'BlogDetalles' blog.id %}" class="btn btn-secondary" style="text-decoration: none;border-radius: 8px;"> Ver </a>
             <a href="{% url 'BlogUpdate' blog.id %}" class="btn btn-secondary" style="text-decoration: none;border-radius: 8px;"> Editar </a>
             <a href="{% url 'BlogDelete' blog.id %}" class="btn btn-secondary" style="text-decoration: none;border-radius: 8px;"> Borrar </a>
+            <p class="card-text"style="text-align: right;">{{blog.fecha}}</p>
         </div>
     </div>
 </div>

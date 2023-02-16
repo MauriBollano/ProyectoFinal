@@ -2,7 +2,64 @@
 {% load static %}
 {% block contenidoQueCambia %}
 
+<div class="container">
+	<div class="row">
+		<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+			<div class="carousel-inner">
+				<div class="carousel-item active">
+					<div class="row">
+						{% for receta in ultimas_recetas %}
+						<div class="col-md-6">
+							<div class="card" style="place-items: center;">
+								<div class="card-body">
+									<h5 class="card-title">{{ receta.nombre }}</h5>
+									<p class="card-text">{{ receta.get_tipo_display }}</p>
+									<img src="{{ receta.imagen.url }}" alt="{{ recetas.nombre }}" style="height:200px;width: 200px;">
+									<p class="card-text">Publicado el {{ receta.fecha|date:"F j, Y" }}</p>
+									<div class="d-flex justify-content-center align-items-center">
+										<a href="{% url 'RecetasDetalles' receta.id %}" class="btn btn-secondary mx-auto">Ver
+											receta</a>
+									</div>
+								</div>
+							</div>
+						</div>
+						{% endfor %}
+					</div>
+				</div>
+				<div class="carousel-item">
+					<div class="row">
+						{% for blog in ultimos_blogs %}
+						<div class="col-md-6">
+							<div class="card" style="place-items: center;">
+								<div class="card-body">
+									<h5 class="card-title">{{ blog.titulo }}</h5>
+									<p class="card-text">{{ blog.subtitulo }}</p>
+									<p class="card-text">{{ blog.resumen|safe }}</p>
+									<p class="card-text">Publicado el {{ blog.fecha|date:"F j, Y" }}</p>
+									<div class="d-flex justify-content-center align-items-center">
+										<a href="{% url 'BlogDetalles' blog.id %}" class="btn btn-secondary mx-auto">Ver blog</a>
+									</div>
+								</div>
+							</div>
+						</div>
+						{% endfor %}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+			<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+			<span class="visually-hidden">Previous</span>
+		</button>
+		<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+			<span class="carousel-control-next-icon" aria-hidden="true"></span>
+			<span class="visually-hidden" >Next</span>
+		</button>
+	</div>
+</div>
 
-    <p>Aca va todo lo que cambia</p>
+</div>
 
 {% endblock %}
